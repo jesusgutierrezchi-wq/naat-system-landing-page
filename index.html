@@ -75,6 +75,148 @@
       display: block;
     }
 
+    /* ===== MEJORAS UX ===== */
+    /* Scroll progress bar */
+    #scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background: var(--naat-verde);
+      z-index: 9999;
+      width: 0%;
+      transition: width 0.1s linear;
+    }
+
+    /* Nav active link */
+    .nav-link.active-nav {
+      color: var(--naat-verde) !important;
+    }
+    .nav-link.active-nav::after {
+      width: 100% !important;
+    }
+
+    /* Footer accent bar */
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--naat-verde);
+    }
+
+    /* Service card left accent */
+    .service-card {
+      position: relative;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: var(--naat-verde);
+      border-radius: 0 0 0 0;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 2;
+    }
+    .service-card:hover::before {
+      opacity: 1;
+    }
+
+    /* Counter strip */
+    .counter-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      background: var(--naat-gris);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--naat-shadow-md);
+    }
+    .counter-item {
+      padding: 2rem 1.5rem;
+      text-align: center;
+      position: relative;
+    }
+    .counter-item:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 20%;
+      height: 60%;
+      width: 1px;
+      background: rgba(255,255,255,0.12);
+    }
+    .counter-num {
+      font-family: var(--naat-font-display);
+      font-size: 2.4rem;
+      font-weight: 800;
+      color: var(--naat-verde);
+      line-height: 1;
+      display: block;
+      margin-bottom: 0.35rem;
+    }
+    .counter-label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.65);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* CTA gradient */
+    .cta-final-section {
+      background: linear-gradient(135deg, #4D7A63 0%, #6D907C 50%, #597867 100%) !important;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-final-section::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cpath d='M100 20 L180 60 L180 140 L100 180 L20 140 L20 60 Z' fill='none' stroke='rgba(255,255,255,0.06)' stroke-width='1'/%3E%3Cpath d='M100 50 L150 75 L150 125 L100 150 L50 125 L50 75 Z' fill='none' stroke='rgba(255,255,255,0.08)' stroke-width='1'/%3E%3C/svg%3E");
+      background-size: 320px;
+      pointer-events: none;
+    }
+
+    /* Metodología step connector */
+    .steps-connector {
+      position: relative;
+    }
+    .steps-connector::before {
+      content: '';
+      position: absolute;
+      top: 27px;
+      left: 6%;
+      right: 6%;
+      height: 2px;
+      background: linear-gradient(to right, var(--naat-verde), var(--naat-verde-suave));
+      z-index: 0;
+    }
+    @media (max-width: 1024px) {
+      .steps-connector::before { display: none; }
+    }
+
+    /* Btn micro-interaction */
+    .btn-primary:hover, .btn-secondary:hover {
+      letter-spacing: 0.025em;
+    }
+
+    /* Hero geo pattern */
+    .hero-geo-bg {
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(109,144,124,0.12) 1px, transparent 1px);
+      background-size: 28px 28px;
+      pointer-events: none;
+      border-radius: 24px;
+    }
+
     .btn-primary {
       background-color: var(--naat-verde);
       color: var(--naat-blanco);
@@ -346,6 +488,7 @@
         <div class="relative mx-auto max-w-lg lg:max-w-none">
           <div style="position:absolute;inset:-20px;background:var(--naat-verde-suave);border-radius:32px;z-index:0;opacity:0.5;"></div>
           <div style="position:relative;z-index:10;background:var(--naat-blanco);border:1px solid var(--naat-borde);border-radius:24px;padding:12px;box-shadow:var(--naat-shadow-lg);">
+            <div class="hero-geo-bg"></div>
             <div style="position:relative;height:22rem;border-radius:16px;overflow:hidden;background:var(--naat-gris);">
               <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" alt="NAAT SYSTEM Dashboard" style="width:100%;height:100%;object-fit:cover;opacity:0.88;transition:transform 0.7s ease;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'" />
               <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(77,77,77,0.85) 0%, rgba(77,77,77,0.2) 50%, transparent 100%);"></div>
@@ -380,7 +523,8 @@
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 
-        <div class="reveal-scale service-card group">
+        <div class="reveal-scale service-card group" style="position:relative;">
+          <div style="position:absolute;top:12px;right:12px;z-index:5;background:var(--naat-verde);color:white;font-size:0.6rem;font-weight:700;padding:4px 10px;border-radius:999px;letter-spacing:0.08em;text-transform:uppercase;">Más Solicitado</div>
           <div style="height:12rem;position:relative;overflow:hidden;background:var(--naat-gris);">
             <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80" alt="Desarrollo de Software" style="width:100%;height:100%;object-fit:cover;opacity:0.85;transition:transform 0.5s ease;" class="group-hover:scale-110" />
             <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(77,77,77,0.82) 0%, transparent 60%);display:flex;align-items:flex-end;padding:1.25rem;"><span class="service-badge"><i class="fa-solid fa-code"></i> Software Engineering</span></div>
@@ -498,6 +642,23 @@
           </div>
         </div>
       </div>
+
+      <!-- Contadores animados -->
+      <div class="reveal counter-strip mt-12 lg:col-span-12">
+        <div class="counter-item">
+          <span class="counter-num" data-target="3" data-suffix="+">0</span>
+          <span class="counter-label">Años de Experiencia</span>
+        </div>
+        <div class="counter-item">
+          <span class="counter-num" data-target="20" data-suffix="+">0</span>
+          <span class="counter-label">Proyectos Entregados</span>
+        </div>
+        <div class="counter-item">
+          <span class="counter-num" data-target="100" data-suffix="%">0</span>
+          <span class="counter-label">Clientes Satisfechos</span>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -630,7 +791,7 @@
         <div style="flex:1;height:1px;background:var(--naat-borde);"></div>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div class="steps-connector grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8" style="position:relative;">
         <div class="reveal">
           <div style="width:56px;height:56px;border-radius:16px;background:var(--naat-verde);color:white;display:flex;align-items:center;justify-content:center;font-family:var(--naat-font-display);font-weight:700;font-size:1.25rem;margin-bottom:1rem;box-shadow:0 4px 16px rgba(109,144,124,0.3);">01</div>
           <h4 style="font-family:var(--naat-font-display);font-weight:700;font-size:1.05rem;color:var(--naat-gris);margin-bottom:0.5rem;">Diagnóstico &amp; Descubrimiento</h4>
@@ -765,11 +926,12 @@
   </section>
 
   <!-- CTA FINAL -->
-  <section class="cta-final-section py-20 px-6 md:px-12">
-    <div style="max-width:1280px;margin:0 auto;text-align:center;" class="reveal">
+  <section class="cta-final-section py-24 px-6 md:px-12">
+    <div style="max-width:1280px;margin:0 auto;text-align:center;position:relative;z-index:1;" class="reveal">
       <span style="font-size:0.68rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.65);display:block;margin-bottom:1rem;">¿Listo para el siguiente nivel?</span>
-      <h2 style="font-size:clamp(2rem,4.5vw,3rem);color:white;margin-bottom:1.5rem;max-width:36rem;margin-left:auto;margin-right:auto;">Comienza tu transformación digital hoy mismo.</h2>
-      <p style="color:rgba(255,255,255,0.75);font-size:1rem;line-height:1.7;max-width:30rem;margin:0 auto 2.5rem;">Agenda una sesión gratuita de diagnóstico con uno de nuestros especialistas.</p>
+      <h2 style="font-size:clamp(2rem,4.5vw,3rem);color:white;margin-bottom:1.5rem;max-width:40rem;margin-left:auto;margin-right:auto;line-height:1.2;">Comienza tu <span style="position:relative;">transformación digital<span style="position:absolute;bottom:-4px;left:0;right:0;height:2px;background:rgba(255,255,255,0.45);border-radius:999px;"></span></span> hoy mismo.</h2>
+      <p style="color:rgba(255,255,255,0.8);font-size:1rem;line-height:1.7;max-width:30rem;margin:0 auto 0.75rem;">Agenda una sesión gratuita de diagnóstico con uno de nuestros especialistas.</p>
+      <p style="color:rgba(255,255,255,0.5);font-size:0.8rem;margin-bottom:2.5rem;"><i class="fa-solid fa-circle-check" style="color:rgba(255,255,255,0.5);margin-right:6px;"></i>Sin compromisos. Respuesta en menos de 24h.</p>
       <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;align-items:center;">
         <a href="#contacto" class="btn-cta-white">Solicitar Diagnóstico Gratuito <i class="fa-solid fa-arrow-right" style="font-size:0.8rem;"></i></a>
         <a href="#servicios" class="btn-cta-outline-white">Ver Servicios</a>
@@ -903,6 +1065,51 @@
       const revealElements = document.querySelectorAll('.reveal, .reveal-scale, .reveal-left, .reveal-right');
       const revealObserver = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('active'); }); }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
       revealElements.forEach(el => revealObserver.observe(el));
+
+      // ===== SCROLL PROGRESS BAR =====
+      const progressBar = document.createElement('div');
+      progressBar.id = 'scroll-progress';
+      document.body.prepend(progressBar);
+      window.addEventListener('scroll', () => {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        progressBar.style.width = (scrollTop / docHeight * 100) + '%';
+      }, { passive: true });
+
+      // ===== ACTIVE NAV LINK =====
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('.nav-link');
+      const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            navLinks.forEach(l => l.classList.remove('active-nav'));
+            const active = document.querySelector(`.nav-link[href="#${e.target.id}"]`);
+            if (active) active.classList.add('active-nav');
+          }
+        });
+      }, { threshold: 0.4 });
+      sections.forEach(s => sectionObserver.observe(s));
+
+      // ===== ANIMATED COUNTERS =====
+      const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          const el = entry.target;
+          const target = parseInt(el.dataset.target, 10);
+          const suffix = el.dataset.suffix || '';
+          const duration = 1400;
+          const step = Math.ceil(target / (duration / 16));
+          let current = 0;
+          const timer = setInterval(() => {
+            current = Math.min(current + step, target);
+            el.textContent = current + suffix;
+            if (current >= target) clearInterval(timer);
+          }, 16);
+          counterObserver.unobserve(el);
+        });
+      }, { threshold: 0.6 });
+      document.querySelectorAll('.counter-num').forEach(el => counterObserver.observe(el));
+
 
       function initCarousel(trackId, prevId, nextId, scrollStep, interval) {
         const track = document.getElementById(trackId);
