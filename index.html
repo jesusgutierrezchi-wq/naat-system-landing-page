@@ -62,6 +62,23 @@
       -webkit-backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--naat-borde);
     }
+    
+    .nav-transparent {
+      background: transparent;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .nav-transparent .nav-logo {
+      filter: brightness(0) invert(1);
+    }
+    .nav-transparent .nav-link {
+      color: rgba(255,255,255,0.85);
+    }
+    .nav-transparent .nav-link:hover, .nav-transparent .nav-link.active-nav {
+      color: #FFFFFF !important;
+    }
+    .nav-transparent #mobile-menu-btn {
+      color: #FFFFFF !important;
+    }
     .nav-logo {
       height: 44px;
       width: auto;
@@ -437,7 +454,7 @@
 <body class="relative overflow-x-hidden">
 
   <!-- NAV -->
-  <header id="main-nav" class="fixed top-0 left-0 w-full z-50 glass-nav transition-all duration-300 py-4 px-6 md:px-12">
+  <header id="main-nav" class="fixed top-0 left-0 w-full z-50 nav-transparent transition-all duration-300 py-4 px-6 md:px-12">
     <div style="max-width:1280px;" class="mx-auto flex items-center justify-between">
       <a href="#" aria-label="NAAT SYSTEM inicio">
         <img src="assets/img/logo-color.png" alt="NAAT SYSTEM" class="nav-logo" />
@@ -486,7 +503,7 @@
           </p>
           <div class="reveal flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-1">
             <a href="#contacto" class="btn-primary w-full sm:w-auto" style="padding:14px 32px; box-shadow: 0 10px 20px rgba(16,185,129,0.3);">Iniciar Proyecto <i class="fa-solid fa-arrow-right" style="font-size:0.75rem;"></i></a>
-            <a href="#servicios" class="btn-outline w-full sm:w-auto" style="padding:13px 31px; border-color: rgba(255,255,255,0.2); color: white;">Explorar Servicios</a>
+            <a href="#servicios" class="btn-cta-outline-white w-full sm:w-auto" style="padding:13px 31px;">Explorar Servicios</a>
           </div>
         </div>
       <div class="reveal-scale lg:col-span-6 relative w-full mt-12 lg:mt-0 h-[450px] sm:h-[500px] flex items-center justify-center">
@@ -1200,15 +1217,17 @@
         mobileLinks.forEach(link => link.addEventListener('click', () => { mobileMenu.classList.add('hidden'); mobileMenu.classList.remove('flex'); }));
       }
 
-      // Logo scroll: reduce tamaño al hacer scroll
+      // Logo scroll: reduce tamaño al hacer scroll y cambia bg
       const mainNav = document.getElementById('main-nav');
       window.addEventListener('scroll', () => {
         if (window.scrollY > 40) {
-          mainNav.classList.add('scrolled');
+          mainNav.classList.add('scrolled', 'glass-nav');
+          mainNav.classList.remove('nav-transparent');
           mainNav.style.paddingTop = '10px';
           mainNav.style.paddingBottom = '10px';
         } else {
-          mainNav.classList.remove('scrolled');
+          mainNav.classList.remove('scrolled', 'glass-nav');
+          mainNav.classList.add('nav-transparent');
           mainNav.style.paddingTop = '';
           mainNav.style.paddingBottom = '';
         }
