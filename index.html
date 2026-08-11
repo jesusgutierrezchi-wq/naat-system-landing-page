@@ -1178,60 +1178,123 @@
     </div>
   </section>
 
-  <!-- NOSOTROS -->
-  <section id="nosotros" class="py-24 px-6 md:px-12" style="background:var(--naat-blanco);">
-    <div style="max-width:1280px;margin:0 auto;" class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-      <div class="reveal-left lg:col-span-5 space-y-6">
-        <span class="label-eyebrow">Nuestra Identidad</span>
-        <h2 style="font-size:clamp(1.9rem,3.5vw,2.6rem);">Impulsamos el éxito a través de la excelencia técnica.</h2>
-        <div class="section-divider"></div>
-        <p style="color:var(--naat-gris-suave);font-size:1rem;line-height:1.75;">En <strong style="color:var(--naat-gris);font-weight:600;">NAAT SYSTEM</strong> nacimos con la convicción de que la tecnología debe ser robusta, accesible y ante todo, segura. Somos el socio estratégico que las empresas necesitan para navegar la era digital sin riesgos.</p>
-        <div style="background:var(--naat-gris);border-radius:16px;padding:1.75rem;position:relative;overflow:hidden;box-shadow:var(--naat-shadow-md);">
-          <div style="position:absolute;right:-16px;bottom:-16px;width:80px;height:80px;border-radius:50%;background:rgba(109,144,124,0.2);pointer-events:none;"></div>
-          <div style="display:flex;align-items:center;gap:12px;margin-bottom:0.75rem;"><i class="fa-solid fa-quote-left" style="color:var(--naat-verde);font-size:1.5rem;"></i><h4 style="font-weight:700;font-size:0.9rem;color:white;">Compromiso NAAT</h4></div>
-          <p style="color:rgba(255,255,255,0.7);font-size:0.85rem;line-height:1.7;font-style:italic;">"No solo escribimos código o cerramos brechas de seguridad; construimos los cimientos sobre los cuales nuestros clientes escalan sus modelos de negocio."</p>
+  <!-- NOSOTROS / NUESTRA IDENTIDAD -->
+  <section id="nosotros" class="py-24 px-6 md:px-12 relative overflow-hidden" style="background:var(--naat-blanco); color:var(--naat-gris);">
+    <!-- Subtle grid background pattern -->
+    <div style="position:absolute; inset:0; background-image: radial-gradient(circle, rgba(10,10,10,0.04) 1px, transparent 1px); background-size: 32px 32px; pointer-events:none;"></div>
+    
+    <div style="max-width:1280px; margin:0 auto;" class="relative z-10 space-y-16">
+      
+      <!-- TOP GRID ROW: IDENTIDAD & COMPROMISO (LEFT) + MISIÓN & VISIÓN (RIGHT) -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        
+        <!-- Left Side: Label, Headline, Paragraph & Compromiso Quote -->
+        <div class="reveal-left lg:col-span-6 space-y-6">
+          <span class="label-eyebrow">Nuestra Identidad</span>
+          <h2 style="font-size:clamp(2rem,3.8vw,2.8rem); font-weight:800; color:var(--naat-gris); line-height:1.15;">
+            Impulsamos el <span class="text-gradient-verde">éxito</span> a través de la <span class="text-gradient-verde">excelencia técnica</span>.
+          </h2>
+          <div class="section-divider" style="margin:0.75rem 0 1.25rem;"></div>
+          <p style="color:var(--naat-gris-suave); font-size:1.02rem; line-height:1.8;">
+            En <strong style="color:var(--naat-gris); font-weight:600;">NAAT SYSTEM</strong> nacimos con la convicción de que la tecnología debe ser robusta, accesible y ante todo, segura. Somos el socio estratégico que las empresas necesitan para navegar la era digital sin riesgos.
+          </p>
+
+
         </div>
-      </div>
-      <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-5">
-        <div class="reveal-scale delay-100 valor-card" style="background:var(--naat-gris-claro);border:1px solid var(--naat-borde);border-radius:20px;padding:1.5rem;transition:all 0.3s ease;cursor:default;" onmouseover="this.style.boxShadow='var(--naat-shadow-md)';this.style.transform='translateY(-4px)';" onmouseout="this.style.boxShadow='none';this.style.transform='translateY(0)';">
-          <div class="valor-icon-wrap" style="margin-bottom:1rem;"><i class="fa-solid fa-bullseye"></i></div>
-          <h3 style="font-size:1.15rem;margin-bottom:0.5rem;">Misión</h3>
-          <p style="color:var(--naat-gris-suave);font-size:0.82rem;line-height:1.7;">Proveer soluciones de desarrollo de software y ciberseguridad de clase mundial, permitiendo a nuestros clientes acelerar su crecimiento con confianza digital absoluta.</p>
-        </div>
-        <div class="reveal-scale delay-200 valor-card" style="background:var(--naat-gris-claro);border:1px solid var(--naat-borde);border-radius:20px;padding:1.5rem;transition:all 0.3s ease;cursor:default;" onmouseover="this.style.boxShadow='var(--naat-shadow-md)';this.style.transform='translateY(-4px)';" onmouseout="this.style.boxShadow='none';this.style.transform='translateY(0)';">
-          <div class="valor-icon-wrap" style="margin-bottom:1rem;"><i class="fa-solid fa-eye"></i></div>
-          <h3 style="font-size:1.15rem;margin-bottom:0.5rem;">Visión</h3>
-          <p style="color:var(--naat-gris-suave);font-size:0.82rem;line-height:1.7;">Ser la firma de ingeniería de software y ciberseguridad referente en la región, reconocida por nuestra innovación constante, rigor técnico y valores inquebrantables.</p>
-        </div>
-        <div class="reveal-scale delay-300 sm:col-span-2" style="background:var(--naat-gris-claro);border:1px solid var(--naat-borde);border-radius:20px;padding:1.75rem;">
-          <h3 style="font-size:1.2rem;margin-bottom:1.5rem;display:flex;align-items:center;gap:10px;"><span style="color:var(--naat-verde);"><i class="fa-solid fa-gem"></i></span> Valores Fundamentales</h3>
-          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-            <div style="background:white;border-radius:12px;padding:1.25rem;display:flex;flex-direction:column;align-items:center;text-align:center;border:1px solid var(--naat-borde);transition:all 0.25s ease;cursor:default;" onmouseover="this.style.transform='translateY(-3px)';this.style.borderColor='var(--naat-verde)';" onmouseout="this.style.transform='translateY(0)';this.style.borderColor='var(--naat-borde)';">
-              <div style="width:40px;height:40px;border-radius:10px;background:var(--naat-verde-suave);color:var(--naat-verde);display:flex;align-items:center;justify-content:center;font-size:1.1rem;margin-bottom:0.75rem;"><i class="fa-solid fa-shield-halved"></i></div>
-              <p style="font-weight:700;font-size:0.85rem;color:var(--naat-gris);line-height:1.3;">Seguridad<br>First</p>
-              <p style="font-size:0.7rem;color:var(--naat-gris-suave);margin-top:4px;font-weight:500;">Protección integral</p>
+
+        <!-- Right Side: Misión & Visión (Integrated Border Dividers like reference image) -->
+        <div class="reveal-right lg:col-span-6 grid grid-cols-1 gap-6 pt-2">
+          <!-- Misión Item -->
+          <div class="group p-6 rounded-2xl border border-gray-200 transition-all duration-300 hover:border-emerald-600/50 hover:shadow-md" style="background: var(--naat-gris-claro);">
+            <div class="flex items-start gap-4">
+              <div style="width:46px; height:46px; border-radius:12px; background:var(--naat-verde-suave); color:var(--naat-verde); border:1px solid rgba(109,144,124,0.3);" class="flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-110">
+                <i class="fa-solid fa-bullseye" style="font-size:1.2rem;"></i>
+              </div>
+              <div>
+                <h3 style="font-size:1.2rem; font-weight:700; color:var(--naat-gris); margin-bottom:0.4rem;">Misión</h3>
+                <p style="color:var(--naat-gris-suave); font-size:0.86rem; line-height:1.75;">
+                  Proveer soluciones de desarrollo de software y ciberseguridad de clase mundial, permitiendo a nuestros clientes acelerar su crecimiento con confianza digital absoluta.
+                </p>
+              </div>
             </div>
-            <div style="background:white;border-radius:12px;padding:1.25rem;display:flex;flex-direction:column;align-items:center;text-align:center;border:1px solid var(--naat-borde);transition:all 0.25s ease;cursor:default;" onmouseover="this.style.transform='translateY(-3px)';this.style.borderColor='var(--naat-verde)';" onmouseout="this.style.transform='translateY(0)';this.style.borderColor='var(--naat-borde)';">
-              <div style="width:40px;height:40px;border-radius:10px;background:var(--naat-verde-suave);color:var(--naat-verde);display:flex;align-items:center;justify-content:center;font-size:1.1rem;margin-bottom:0.75rem;"><i class="fa-solid fa-lightbulb"></i></div>
-              <p style="font-weight:700;font-size:0.85rem;color:var(--naat-gris);">Innovación</p>
-              <p style="font-size:0.7rem;color:var(--naat-gris-suave);margin-top:4px;font-weight:500;">Vanguardia técnica</p>
-            </div>
-            <div style="background:white;border-radius:12px;padding:1.25rem;display:flex;flex-direction:column;align-items:center;text-align:center;border:1px solid var(--naat-borde);transition:all 0.25s ease;cursor:default;" onmouseover="this.style.transform='translateY(-3px)';this.style.borderColor='var(--naat-verde)';" onmouseout="this.style.transform='translateY(0)';this.style.borderColor='var(--naat-borde)';">
-              <div style="width:40px;height:40px;border-radius:10px;background:var(--naat-verde-suave);color:var(--naat-verde);display:flex;align-items:center;justify-content:center;font-size:1.1rem;margin-bottom:0.75rem;"><i class="fa-solid fa-handshake"></i></div>
-              <p style="font-weight:700;font-size:0.85rem;color:var(--naat-gris);">Transparencia</p>
-              <p style="font-size:0.7rem;color:var(--naat-gris-suave);margin-top:4px;font-weight:500;">Comunicación directa</p>
-            </div>
-            <div style="background:white;border-radius:12px;padding:1.25rem;display:flex;flex-direction:column;align-items:center;text-align:center;border:1px solid var(--naat-borde);transition:all 0.25s ease;cursor:default;" onmouseover="this.style.transform='translateY(-3px)';this.style.borderColor='var(--naat-verde)';" onmouseout="this.style.transform='translateY(0)';this.style.borderColor='var(--naat-borde)';">
-              <div style="width:40px;height:40px;border-radius:10px;background:var(--naat-verde-suave);color:var(--naat-verde);display:flex;align-items:center;justify-content:center;font-size:1.1rem;margin-bottom:0.75rem;"><i class="fa-solid fa-rocket"></i></div>
-              <p style="font-weight:700;font-size:0.85rem;color:var(--naat-gris);">Agilidad</p>
-              <p style="font-size:0.7rem;color:var(--naat-gris-suave);margin-top:4px;font-weight:500;">Entrega continua</p>
+          </div>
+
+          <!-- Visión Item -->
+          <div class="group p-6 rounded-2xl border border-gray-200 transition-all duration-300 hover:border-emerald-600/50 hover:shadow-md" style="background: var(--naat-gris-claro);">
+            <div class="flex items-start gap-4">
+              <div style="width:46px; height:46px; border-radius:12px; background:var(--naat-verde-suave); color:var(--naat-verde); border:1px solid rgba(109,144,124,0.3);" class="flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-110">
+                <i class="fa-solid fa-eye" style="font-size:1.2rem;"></i>
+              </div>
+              <div>
+                <h3 style="font-size:1.2rem; font-weight:700; color:var(--naat-gris); margin-bottom:0.4rem;">Visión</h3>
+                <p style="color:var(--naat-gris-suave); font-size:0.86rem; line-height:1.75;">
+                  Ser la firma de ingeniería de software y ciberseguridad referente en la región, reconocida por nuestra innovación constante, rigor técnico y valores inquebrantables.
+                </p>
+              </div>
             </div>
           </div>
         </div>
+
       </div>
 
-      <!-- Contadores animados -->
-      <div class="reveal counter-strip mt-12 lg:col-span-12">
+      <!-- MIDDLE ROW: VALORES FUNDAMENTALES (INTEGRATED SECTION LIKE REFERENCE IMAGE) -->
+      <div class="reveal pt-6 border-t border-gray-200">
+        <div class="flex items-center gap-3 mb-8">
+          <span style="color:var(--naat-verde); font-size:1.1rem;"><i class="fa-solid fa-gem"></i></span>
+          <h3 style="font-size:1.15rem; font-weight:800; color:var(--naat-gris); letter-spacing:0.08em; text-transform:uppercase;">Valores Fundamentales</h3>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          <!-- Valor 1 -->
+          <div class="group p-5 rounded-xl border border-gray-200 transition-all duration-300 hover:border-emerald-600/50 hover:shadow-md flex items-start gap-4" style="background: var(--naat-gris-claro);">
+            <div style="width:40px; height:40px; border-radius:10px; background:var(--naat-verde-suave); color:var(--naat-verde); border:1px solid rgba(109,144,124,0.25);" class="flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-110">
+              <i class="fa-solid fa-shield-halved text-base"></i>
+            </div>
+            <div>
+              <p style="font-weight:700; font-size:0.92rem; color:var(--naat-gris); line-height:1.3;">Seguridad First</p>
+              <p style="font-size:0.75rem; color:var(--naat-gris-suave); margin-top:4px; font-weight:500;">Protección integral</p>
+            </div>
+          </div>
+
+          <!-- Valor 2 -->
+          <div class="group p-5 rounded-xl border border-gray-200 transition-all duration-300 hover:border-emerald-600/50 hover:shadow-md flex items-start gap-4" style="background: var(--naat-gris-claro);">
+            <div style="width:40px; height:40px; border-radius:10px; background:var(--naat-verde-suave); color:var(--naat-verde); border:1px solid rgba(109,144,124,0.25);" class="flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-110">
+              <i class="fa-solid fa-lightbulb text-base"></i>
+            </div>
+            <div>
+              <p style="font-weight:700; font-size:0.92rem; color:var(--naat-gris); line-height:1.3;">Innovación</p>
+              <p style="font-size:0.75rem; color:var(--naat-gris-suave); margin-top:4px; font-weight:500;">Vanguardia técnica</p>
+            </div>
+          </div>
+
+          <!-- Valor 3 -->
+          <div class="group p-5 rounded-xl border border-gray-200 transition-all duration-300 hover:border-emerald-600/50 hover:shadow-md flex items-start gap-4" style="background: var(--naat-gris-claro);">
+            <div style="width:40px; height:40px; border-radius:10px; background:var(--naat-verde-suave); color:var(--naat-verde); border:1px solid rgba(109,144,124,0.25);" class="flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-110">
+              <i class="fa-solid fa-handshake text-base"></i>
+            </div>
+            <div>
+              <p style="font-weight:700; font-size:0.92rem; color:var(--naat-gris); line-height:1.3;">Transparencia</p>
+              <p style="font-size:0.75rem; color:var(--naat-gris-suave); margin-top:4px; font-weight:500;">Comunicación directa</p>
+            </div>
+          </div>
+
+          <!-- Valor 4 -->
+          <div class="group p-5 rounded-xl border border-gray-200 transition-all duration-300 hover:border-emerald-600/50 hover:shadow-md flex items-start gap-4" style="background: var(--naat-gris-claro);">
+            <div style="width:40px; height:40px; border-radius:10px; background:var(--naat-verde-suave); color:var(--naat-verde); border:1px solid rgba(109,144,124,0.25);" class="flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-110">
+              <i class="fa-solid fa-rocket text-base"></i>
+            </div>
+            <div>
+              <p style="font-weight:700; font-size:0.92rem; color:var(--naat-gris); line-height:1.3;">Agilidad</p>
+              <p style="font-size:0.75rem; color:var(--naat-gris-suave); margin-top:4px; font-weight:500;">Entrega continua</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- BOTTOM ROW: COUNTERS INTEGRATED WITH SLEEK DIVIDERS -->
+      <div class="reveal counter-strip">
         <div class="counter-item">
           <span class="counter-num" data-target="3" data-suffix="+">0</span>
           <span class="counter-label">Años de Experiencia</span>
