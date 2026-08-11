@@ -501,6 +501,43 @@
       background: #FFFFFF;
     }
 
+    /* ===== TICKER MARQUEE CAROUSEL STRIP AT TOP EDGE ===== */
+    @keyframes services-ticker {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .services-ticker-wrap {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      z-index: 20;
+      overflow: hidden;
+      white-space: nowrap;
+      background: rgba(0, 0, 0, 0.14);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(8px);
+      padding: 9px 0;
+      display: flex;
+      justify-content: flex-start;
+    }
+    .services-ticker-track {
+      display: inline-flex;
+      gap: 2.5rem;
+      animation: services-ticker 18s linear infinite;
+    }
+    .services-ticker-item {
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      color: #FFFFFF;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 2.5rem;
+    }
+
     .animate-float { animation:float 6s ease-in-out infinite; }
     .animate-float-delayed { animation:float 6s ease-in-out 3s infinite; }
     @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
@@ -823,8 +860,29 @@
   </section>
 
   <!-- SERVICIOS -->
-  <section id="servicios" class="py-24 px-6 md:px-12 relative overflow-hidden" style="background: var(--naat-verde);">
+  <section id="servicios" class="pt-28 pb-24 px-6 md:px-12 relative overflow-hidden" style="background: var(--naat-verde);">
     
+    <!-- Franja Carrusel Continuo de Ancho Completo Pegada al Inicio de la Sección -->
+    <div class="services-ticker-wrap">
+      <div class="services-ticker-track">
+        <span class="services-ticker-item">
+          <span>SOFTWARE</span> <i class="fa-solid fa-diamond text-[8px] opacity-70"></i>
+          <span>CIBERSEGURIDAD &amp; PROTECCIÓN</span> <i class="fa-solid fa-diamond text-[8px] opacity-70"></i>
+          <span>CONSULTORÍA IT &amp; NUBE</span> <i class="fa-solid fa-diamond text-[8px] opacity-70"></i>
+        </span>
+        <span class="services-ticker-item">
+          <span>SOFTWARE</span> <i class="fa-solid fa-diamond text-[8px] opacity-70"></i>
+          <span>CIBERSEGURIDAD &amp; PROTECCIÓN</span> <i class="fa-solid fa-diamond text-[8px] opacity-70"></i>
+          <span>CONSULTORÍA IT &amp; NUBE</span> <i class="fa-solid fa-diamond text-[8px] opacity-70"></i>
+        </span>
+        <span class="services-ticker-item">
+          <span>SOFTWARE</span> <i class="fa-solid fa-diamond text-[8px] opacity-70"></i>
+          <span>CIBERSEGURIDAD &amp; PROTECCIÓN</span> <i class="fa-solid fa-diamond text-[8px] opacity-70"></i>
+          <span>CONSULTORÍA IT &amp; NUBE</span> <i class="fa-solid fa-diamond text-[8px] opacity-70"></i>
+        </span>
+      </div>
+    </div>
+
     <!-- Trama de Fondo con Polígonos y Triángulos Geométricos High-Tech -->
     <div style="position:absolute; top:-8%; left:-8%; width:600px; height:600px; pointer-events:none; opacity:0.35; z-index:1;">
       <svg viewBox="0 0 500 500" width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
