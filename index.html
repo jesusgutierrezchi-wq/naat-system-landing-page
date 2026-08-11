@@ -7,11 +7,24 @@
   <meta name="description" content="NAAT SYSTEM — Firma especializada en desarrollo de software a medida, ciberseguridad avanzada y consultoría tecnológica estratégica. Premium, exclusiva y moderna." />
 
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
 
-  <!-- Google Fonts: Plus Jakarta Sans (tipografía original) -->
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
   <style>
@@ -26,6 +39,7 @@
       --naat-borde: #DDDDDD;
       --naat-font-display: 'Plus Jakarta Sans', sans-serif;
       --naat-font-body:    'Plus Jakarta Sans', sans-serif;
+      --naat-font-mono:    'JetBrains Mono', monospace;
       --naat-radius: 8px;
       --naat-shadow: 0 4px 16px rgba(10, 10, 10, 0.08);
       --naat-shadow-md: 0 8px 32px rgba(10, 10, 10, 0.12);
@@ -33,7 +47,7 @@
     }
 
     *, *::before, *::after { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; font-family: var(--naat-font-body); }
 
     body {
       font-family: var(--naat-font-body);
@@ -43,7 +57,9 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    h1, h2, h3 { font-family: var(--naat-font-display); color: var(--naat-gris); line-height: 1.15; }
+    h1, h2, h3, h4, h5, h6 { font-family: var(--naat-font-display); color: var(--naat-gris); line-height: 1.15; }
+
+    button, input, textarea, select { font-family: var(--naat-font-body); }
 
     .label-eyebrow {
       font-family: var(--naat-font-body);
@@ -430,21 +446,26 @@
 
     .floating-code-badge {
       position: absolute;
-      top: 1.5rem;
-      left: -1rem;
+      bottom: 10px;
+      left: 10px;
       z-index: 10;
-      background: rgba(10, 15, 12, 0.92);
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(12px);
-      border-radius: 14px;
-      padding: 8px 14px;
-      display: flex;
+      background: rgba(10, 15, 12, 0.65);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4), inset 0 0 10px rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 999px;
+      padding: 4px 10px;
+      display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
       color: #FFFFFF !important;
+      font-size: 0.65rem;
       font-weight: 700;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      pointer-events: none;
+      transition: all 0.3s ease;
     }
 
     .sub-cta-container {
@@ -737,7 +758,7 @@
           </div>
 
           <!-- Panel HUD de Ciberseguridad (Elevado para no tapar texto) -->
-          <div class="animate-float hidden sm:flex" style="position:absolute; top: -8%; left: -12%; width: 250px; background: rgba(10,15,20,0.85); backdrop-filter: blur(16px); border: 1px solid rgba(0, 255, 255, 0.15); border-left: 3px solid rgba(0, 255, 255, 0.6); border-radius: 8px; padding: 18px; flex-direction:column; gap:16px; z-index: 6; box-shadow: 0 15px 35px rgba(0,0,0,0.6), inset 0 0 20px rgba(0,255,255,0.05); color: #E2E8F0; font-family: 'Courier New', Courier, monospace;">
+          <div class="animate-float hidden sm:flex" style="position:absolute; top: -8%; left: -12%; width: 250px; background: rgba(10,15,20,0.85); backdrop-filter: blur(16px); border: 1px solid rgba(0, 255, 255, 0.15); border-left: 3px solid rgba(0, 255, 255, 0.6); border-radius: 8px; padding: 18px; flex-direction:column; gap:16px; z-index: 6; box-shadow: 0 15px 35px rgba(0,0,0,0.6), inset 0 0 20px rgba(0,255,255,0.05); color: #E2E8F0; font-family: var(--naat-font-mono);">
              
              <!-- Item 1 -->
              <div style="display:flex; align-items:center; gap: 12px;">
@@ -798,7 +819,7 @@
           </div>
 
           <!-- Ventana de Editor de Código Principal (Derecha) -->
-          <div class="animate-float-delayed" style="position:absolute; top: 15%; right: -15%; width: 90%; max-width: 460px; background: #18181B; border-radius: 16px; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5), 0 0 30px rgba(234,179,8,0.08); overflow: hidden; z-index: 2; display:flex; flex-direction:column; font-family: 'Courier New', Courier, monospace;">
+          <div class="animate-float-delayed" style="position:absolute; top: 15%; right: -15%; width: 90%; max-width: 460px; background: #18181B; border-radius: 16px; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5), 0 0 30px rgba(234,179,8,0.08); overflow: hidden; z-index: 2; display:flex; flex-direction:column; font-family: var(--naat-font-mono);">
             <!-- Header del Editor -->
             <div style="padding: 12px 16px; background: rgba(0,0,0,0.2); border-bottom: 1px solid rgba(255,255,255,0.05); display:flex; gap: 6px;">
               <div style="width:10px; height:10px; border-radius:50%; background:#FF5F56;"></div>
@@ -823,7 +844,7 @@
           <!-- Caja de "Scanning..." (Conectada al Code Window superior derecho) -->
           <div class="animate-float hidden sm:flex" style="position:absolute; top: 10%; right: -25%; background: rgba(20,20,20,0.95); backdrop-filter: blur(10px); border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); padding: 8px 12px; align-items:center; gap: 8px; z-index: 7; box-shadow: 0 8px 20px rgba(0,0,0,0.4);">
             <div class="animate-spin" style="width:12px; height:12px; border-radius:50%; border: 2px solid rgba(234,179,8,0.8); border-top-color: transparent;"></div>
-            <span style="font-family: 'Courier New', monospace; font-size: 0.65rem; color: #8B9EB0; letter-spacing: 0.05em;">NETWORK_SCAN()</span>
+            <span style="font-family: var(--naat-font-mono); font-size: 0.65rem; color: #8B9EB0; letter-spacing: 0.05em;">NETWORK_SCAN()</span>
           </div>
 
           <!-- Segunda Ventana de Código (Terminal - Abajo Izquierda) -->
@@ -831,7 +852,7 @@
              <div style="padding: 8px 16px; background: rgba(0,0,0,0.3); border-bottom: 1px solid rgba(255,255,255,0.05); display:flex; gap:12px; font-size:0.65rem; color:#8B9EB0; font-weight:600;">
                <span style="color:white; background:rgba(255,255,255,0.1); padding:2px 8px; border-radius:4px;"><i class="fa-solid fa-terminal" style="margin-right:4px;"></i> Terminal</span>
              </div>
-             <div style="padding: 16px; font-family: 'Courier New', Courier, monospace; font-size: 0.75rem; color: #8B9EB0; text-align: left; line-height: 1.6;">
+             <div style="padding: 16px; font-family: var(--naat-font-mono); font-size: 0.75rem; color: #8B9EB0; text-align: left; line-height: 1.6;">
                <span style="color:#98C379;">&gt;</span> naat-cli analyze nodes<br>
                <span style="color:#ABB2BF;">Scanning infrastructure...</span><br>
                <span style="color:#98C379;">[OK]</span> Node 1 (us-east): Secure<br>
@@ -936,9 +957,9 @@
             <div class="relative overflow-hidden rounded-xl border border-gray-200 my-4 group-hover:scale-[1.02] transition-transform duration-300 shadow-sm">
               <img src="assets/img/software_card_mockup.png" alt="Desarrollo de Software" class="w-full h-44 object-cover" />
               <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(10,15,12,0.85) 0%, transparent 60%);"></div>
-              <div style="position:absolute; bottom:12px; left:12px;" class="floating-code-badge" style="padding:6px 14px; font-size:0.75rem;">
-                <i class="fa-solid fa-code text-sm" style="color:#8FB8A0;"></i>
-                <span style="color:#FFFFFF !important; font-weight:700; letter-spacing:0.06em;">&lt;/&gt; SOFTWARE</span>
+              <div class="floating-code-badge" style="border-color:rgba(109,144,124,0.4);">
+                <i class="fa-solid fa-code text-xs" style="color:#8FB8A0;"></i>
+                <span>SOFTWARE</span>
               </div>
             </div>
 
@@ -994,9 +1015,9 @@
             <div class="relative overflow-hidden rounded-xl border border-gray-200 my-4 group-hover:scale-[1.02] transition-transform duration-300 shadow-sm">
               <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80" alt="Ciberseguridad" class="w-full h-44 object-cover" />
               <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(10,15,12,0.85) 0%, transparent 60%);"></div>
-              <div style="position:absolute; bottom:12px; left:12px;" class="floating-code-badge" style="padding:6px 14px; font-size:0.75rem; border-color:rgba(0,255,255,0.3);">
-                <i class="fa-solid fa-lock text-sm" style="color:#76E4F7;"></i>
-                <span style="color:#FFFFFF !important; font-weight:700; letter-spacing:0.06em;">SOC SECURE</span>
+              <div class="floating-code-badge" style="border-color:rgba(0,255,255,0.35);">
+                <i class="fa-solid fa-lock text-xs" style="color:#76E4F7;"></i>
+                <span>SOC SECURE</span>
               </div>
             </div>
 
@@ -1030,7 +1051,7 @@
             </ul>
           </div>
 
-          <a href="#contacto" class="btn-secondary w-full text-center" style="border-radius:12px; font-size:0.82rem; padding:11px 20px;">
+          <a href="#contacto" class="btn-primary w-full text-center" style="border-radius:12px; font-size:0.82rem; padding:11px 20px; box-shadow:0 6px 20px rgba(109,144,124,0.3);">
             Saber más de Ciberseguridad <i class="fa-solid fa-arrow-right" style="font-size:0.7rem; margin-left:4px;"></i>
           </a>
         </div>
@@ -1052,9 +1073,9 @@
             <div class="relative overflow-hidden rounded-xl border border-gray-200 my-4 group-hover:scale-[1.02] transition-transform duration-300 shadow-sm">
               <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80" alt="Consultoría IT" class="w-full h-44 object-cover" />
               <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(10,15,12,0.85) 0%, transparent 60%);"></div>
-              <div style="position:absolute; bottom:12px; left:12px;" class="floating-code-badge" style="padding:6px 14px; font-size:0.75rem; border-color:rgba(168,85,247,0.3);">
-                <i class="fa-solid fa-server text-sm text-purple-400"></i>
-                <span style="color:#FFFFFF !important; font-weight:700; letter-spacing:0.06em;">AWS &amp; AZURE</span>
+              <div class="floating-code-badge" style="border-color:rgba(168,85,247,0.35);">
+                <i class="fa-solid fa-server text-xs" style="color:#C084FC;"></i>
+                <span>AWS &amp; AZURE</span>
               </div>
             </div>
 
@@ -1088,7 +1109,7 @@
             </ul>
           </div>
 
-          <a href="#contacto" class="btn-secondary w-full text-center" style="border-radius:12px; font-size:0.82rem; padding:11px 20px;">
+          <a href="#contacto" class="btn-primary w-full text-center" style="border-radius:12px; font-size:0.82rem; padding:11px 20px; box-shadow:0 6px 20px rgba(109,144,124,0.3);">
             Saber más de Consultoría <i class="fa-solid fa-arrow-right" style="font-size:0.7rem; margin-left:4px;"></i>
           </a>
         </div>
@@ -1107,11 +1128,17 @@
               <h4 style="font-size:clamp(1.2rem, 2.5vw, 1.5rem); font-weight:800; color:var(--naat-gris);" class="mt-0.5">Construyamos Algo <span class="text-gradient-verde">Increíble</span> Juntos</h4>
             </div>
           </div>
-          <div class="flex items-center gap-6 w-full md:w-auto justify-between md:justify-end">
-            <p style="color:var(--naat-gris-suave); font-size:0.85rem;" class="hidden xl:block max-w-[240px]">¿Tienes un proyecto en mente? Hagamos realidad tus ideas.</p>
-            <a href="#contacto" class="btn-primary w-full md:w-auto text-center" style="padding:12px 28px; border-radius:999px; box-shadow:0 8px 25px rgba(109,144,124,0.3); display:inline-flex; align-items:center; justify-content:center; gap:8px;">
-              CONTÁCTANOS <i class="fa-solid fa-circle-arrow-right text-base"></i>
-            </a>
+          <div class="flex items-center gap-4 w-full md:w-auto justify-between md:justify-end flex-wrap sm:flex-nowrap">
+            <p style="color:var(--naat-gris-suave); font-size:0.85rem;" class="hidden xl:block max-w-[220px]">¿Tienes un proyecto en mente? Hagamos realidad tus ideas.</p>
+            <div class="flex items-center gap-3 w-full sm:w-auto">
+              <a href="#contacto" class="btn-primary w-full sm:w-auto text-center" style="padding:12px 24px; border-radius:999px; box-shadow:0 8px 25px rgba(109,144,124,0.3); display:inline-flex; align-items:center; justify-content:center; gap:8px; font-size:0.85rem;">
+                CONTÁCTANOS <i class="fa-solid fa-circle-arrow-right text-base"></i>
+              </a>
+              <a href="javascript:void(0)" aria-label="Contacto por WhatsApp" title="WhatsApp" style="background-color:#25D366; color:white; padding:12px 20px; border-radius:999px; font-weight:700; font-size:0.85rem; display:inline-flex; align-items:center; justify-content:center; gap:8px; box-shadow:0 6px 20px rgba(37,211,102,0.35); transition:all 0.2s ease; text-decoration:none; cursor:pointer;" onmouseover="this.style.backgroundColor='#20BA5A'; this.style.transform='translateY(-2px)';" onmouseout="this.style.backgroundColor='#25D366'; this.style.transform='translateY(0)';">
+                <i class="fa-brands fa-whatsapp text-lg"></i>
+                <span>WHATSAPP</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -1353,23 +1380,23 @@
 
       <div class="steps-connector grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8" style="position:relative;">
         <div class="reveal">
-          <div style="width:56px;height:56px;border-radius:16px;background:var(--naat-verde);color:white;display:flex;align-items:center;justify-content:center;font-family:var(--naat-font-display);font-weight:700;font-size:1.25rem;margin-bottom:1rem;box-shadow:0 4px 16px rgba(109,144,124,0.3);">01</div>
-          <h4 style="font-family:var(--naat-font-display);font-weight:700;font-size:1.05rem;color:var(--naat-gris);margin-bottom:0.5rem;">Diagnóstico &amp; Descubrimiento</h4>
+          <div style="width:56px;height:56px;border-radius:16px;background:var(--naat-verde);color:white;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.25rem;margin-bottom:1rem;box-shadow:0 4px 16px rgba(109,144,124,0.3);">01</div>
+          <h4 style="font-weight:700;font-size:1.05rem;color:var(--naat-gris);margin-bottom:0.5rem;">Diagnóstico &amp; Descubrimiento</h4>
           <p style="color:var(--naat-gris-suave);font-size:0.85rem;line-height:1.7;">Analizamos tus objetivos, infraestructura actual y riesgos potenciales para definir el alcance exacto.</p>
         </div>
         <div class="reveal" style="transition-delay:100ms;">
-          <div style="width:56px;height:56px;border-radius:16px;background:var(--naat-verde);color:white;display:flex;align-items:center;justify-content:center;font-family:var(--naat-font-display);font-weight:700;font-size:1.25rem;margin-bottom:1rem;box-shadow:0 4px 16px rgba(109,144,124,0.3);">02</div>
-          <h4 style="font-family:var(--naat-font-display);font-weight:700;font-size:1.05rem;color:var(--naat-gris);margin-bottom:0.5rem;">Diseño &amp; Arquitectura</h4>
+          <div style="width:56px;height:56px;border-radius:16px;background:var(--naat-verde);color:white;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.25rem;margin-bottom:1rem;box-shadow:0 4px 16px rgba(109,144,124,0.3);">02</div>
+          <h4 style="font-weight:700;font-size:1.05rem;color:var(--naat-gris);margin-bottom:0.5rem;">Diseño &amp; Arquitectura</h4>
           <p style="color:var(--naat-gris-suave);font-size:0.85rem;line-height:1.7;">Diseñamos la solución técnica óptima: stack, seguridad, escalabilidad y roadmap de entrega.</p>
         </div>
         <div class="reveal" style="transition-delay:200ms;">
-          <div style="width:56px;height:56px;border-radius:16px;background:var(--naat-verde);color:white;display:flex;align-items:center;justify-content:center;font-family:var(--naat-font-display);font-weight:700;font-size:1.25rem;margin-bottom:1rem;box-shadow:0 4px 16px rgba(109,144,124,0.3);">03</div>
-          <h4 style="font-family:var(--naat-font-display);font-weight:700;font-size:1.05rem;color:var(--naat-gris);margin-bottom:0.5rem;">Desarrollo &amp; Testing</h4>
+          <div style="width:56px;height:56px;border-radius:16px;background:var(--naat-verde);color:white;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.25rem;margin-bottom:1rem;box-shadow:0 4px 16px rgba(109,144,124,0.3);">03</div>
+          <h4 style="font-weight:700;font-size:1.05rem;color:var(--naat-gris);margin-bottom:0.5rem;">Desarrollo &amp; Testing</h4>
           <p style="color:var(--naat-gris-suave);font-size:0.85rem;line-height:1.7;">Sprints iterativos con entregas parciales verificables. QA integrado y pruebas de penetración en cada ciclo.</p>
         </div>
         <div class="reveal" style="transition-delay:300ms;">
-          <div style="width:56px;height:56px;border-radius:16px;background:var(--naat-gris);color:white;display:flex;align-items:center;justify-content:center;font-family:var(--naat-font-display);font-weight:700;font-size:1.25rem;margin-bottom:1rem;box-shadow:var(--naat-shadow-md);">04</div>
-          <h4 style="font-family:var(--naat-font-display);font-weight:700;font-size:1.05rem;color:var(--naat-gris);margin-bottom:0.5rem;">Deploy &amp; Soporte Continuo</h4>
+          <div style="width:56px;height:56px;border-radius:16px;background:var(--naat-gris);color:white;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.25rem;margin-bottom:1rem;box-shadow:var(--naat-shadow-md);">04</div>
+          <h4 style="font-weight:700;font-size:1.05rem;color:var(--naat-gris);margin-bottom:0.5rem;">Deploy &amp; Soporte Continuo</h4>
           <p style="color:var(--naat-gris-suave);font-size:0.85rem;line-height:1.7;">Despliegue seguro, monitoreo post-lanzamiento y soporte técnico especializado a largo plazo.</p>
         </div>
       </div>
@@ -1394,7 +1421,7 @@
           <div style="padding-left:0.5rem;">
             <div style="width:40px;height:40px;border-radius:10px;background:var(--naat-verde-suave);display:flex;align-items:center;justify-content:center;margin-bottom:0.875rem;"><i class="fa-solid fa-satellite-dish" style="color:var(--naat-verde);font-size:1rem;"></i></div>
             <span style="font-size:0.6rem;font-weight:700;color:var(--naat-verde);letter-spacing:0.1em;text-transform:uppercase;display:block;margin-bottom:0.4rem;">FASE 01</span>
-            <h4 style="font-family:var(--naat-font-display);font-weight:700;font-size:0.92rem;color:var(--naat-gris);margin-bottom:0.5rem;line-height:1.3;">Reconocimiento &amp; OSINT</h4>
+            <h4 style="font-weight:700;font-size:0.92rem;color:var(--naat-gris);margin-bottom:0.5rem;line-height:1.3;">Reconocimiento &amp; OSINT</h4>
             <p style="color:var(--naat-gris-suave);font-size:0.78rem;line-height:1.65;">Recolección pasiva y activa de información: enumeración de activos, subdominios, puertos y servicios expuestos.</p>
           </div>
         </div>
@@ -1404,7 +1431,7 @@
           <div style="padding-left:0.5rem;">
             <div style="width:40px;height:40px;border-radius:10px;background:var(--naat-verde-suave);display:flex;align-items:center;justify-content:center;margin-bottom:0.875rem;"><i class="fa-solid fa-magnifying-glass-chart" style="color:var(--naat-verde);font-size:1rem;"></i></div>
             <span style="font-size:0.6rem;font-weight:700;color:var(--naat-verde);letter-spacing:0.1em;text-transform:uppercase;display:block;margin-bottom:0.4rem;">FASE 02</span>
-            <h4 style="font-family:var(--naat-font-display);font-weight:700;font-size:0.92rem;color:var(--naat-gris);margin-bottom:0.5rem;line-height:1.3;">Análisis de Vulnerabilidades</h4>
+            <h4 style="font-weight:700;font-size:0.92rem;color:var(--naat-gris);margin-bottom:0.5rem;line-height:1.3;">Análisis de Vulnerabilidades</h4>
             <p style="color:var(--naat-gris-suave);font-size:0.78rem;line-height:1.65;">Escaneo con Nessus y OpenVAS. Clasificación por severidad CVSS y correlación de vectores de ataque.</p>
           </div>
         </div>
@@ -1414,7 +1441,7 @@
           <div style="padding-left:0.5rem;">
             <div style="width:40px;height:40px;border-radius:10px;background:var(--naat-verde-suave);display:flex;align-items:center;justify-content:center;margin-bottom:0.875rem;"><i class="fa-solid fa-bug-slash" style="color:var(--naat-verde);font-size:1rem;"></i></div>
             <span style="font-size:0.6rem;font-weight:700;color:var(--naat-verde);letter-spacing:0.1em;text-transform:uppercase;display:block;margin-bottom:0.4rem;">FASE 03</span>
-            <h4 style="font-family:var(--naat-font-display);font-weight:700;font-size:0.92rem;color:var(--naat-gris);margin-bottom:0.5rem;line-height:1.3;">Explotación Controlada</h4>
+            <h4 style="font-weight:700;font-size:0.92rem;color:var(--naat-gris);margin-bottom:0.5rem;line-height:1.3;">Explotación Controlada</h4>
             <p style="color:var(--naat-gris-suave);font-size:0.78rem;line-height:1.65;">Pentesting ético con Metasploit y Burp Suite. Simulación de ataques reales para validar el impacto de cada vulnerabilidad.</p>
           </div>
         </div>
@@ -1424,7 +1451,7 @@
           <div style="padding-left:0.5rem;">
             <div style="width:40px;height:40px;border-radius:10px;background:var(--naat-verde-suave);display:flex;align-items:center;justify-content:center;margin-bottom:0.875rem;"><i class="fa-solid fa-file-shield" style="color:var(--naat-verde);font-size:1rem;"></i></div>
             <span style="font-size:0.6rem;font-weight:700;color:var(--naat-verde);letter-spacing:0.1em;text-transform:uppercase;display:block;margin-bottom:0.4rem;">FASE 04</span>
-            <h4 style="font-family:var(--naat-font-display);font-weight:700;font-size:0.92rem;color:var(--naat-gris);margin-bottom:0.5rem;line-height:1.3;">Informe &amp; Evidencias</h4>
+            <h4 style="font-weight:700;font-size:0.92rem;color:var(--naat-gris);margin-bottom:0.5rem;line-height:1.3;">Informe &amp; Evidencias</h4>
             <p style="color:var(--naat-gris-suave);font-size:0.78rem;line-height:1.65;">Reporte ejecutivo y técnico con PoC, nivel de riesgo y recomendaciones priorizadas de remediación.</p>
           </div>
         </div>
@@ -1434,7 +1461,7 @@
           <div>
             <div style="width:40px;height:40px;border-radius:10px;background:rgba(109,144,124,0.22);display:flex;align-items:center;justify-content:center;margin-bottom:0.875rem;"><i class="fa-solid fa-rotate" style="color:var(--naat-verde);font-size:1rem;"></i></div>
             <span style="font-size:0.6rem;font-weight:700;color:var(--naat-verde);letter-spacing:0.1em;text-transform:uppercase;display:block;margin-bottom:0.4rem;">FASE 05</span>
-            <h4 style="font-family:var(--naat-font-display);font-weight:700;font-size:0.92rem;color:white;margin-bottom:0.5rem;line-height:1.3;">Remediación &amp; Re-test</h4>
+            <h4 style="font-weight:700;font-size:0.92rem;color:white;margin-bottom:0.5rem;line-height:1.3;">Remediación &amp; Re-test</h4>
             <p style="color:rgba(255,255,255,0.6);font-size:0.78rem;line-height:1.65;">Acompañamiento en la corrección y verificación técnica post-remediación para certificar el cierre de cada hallazgo.</p>
           </div>
         </div>
@@ -1567,7 +1594,7 @@
   <div id="toast-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4" style="background:rgba(77,77,77,0.4);backdrop-filter:blur(6px);">
     <div style="background:white;max-width:28rem;width:100%;padding:2.5rem;border-radius:20px;text-align:center;box-shadow:var(--naat-shadow-lg);">
       <div style="width:64px;height:64px;border-radius:50%;background:var(--naat-verde-suave);color:var(--naat-verde);display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin:0 auto 1rem;"><i class="fa-solid fa-circle-check"></i></div>
-      <h3 style="font-family:var(--naat-font-display);font-size:1.5rem;font-weight:700;color:var(--naat-gris);margin-bottom:0.75rem;">¡Mensaje Enviado!</h3>
+      <h3 style="font-size:1.5rem;font-weight:700;color:var(--naat-gris);margin-bottom:0.75rem;">¡Mensaje Enviado!</h3>
       <p style="color:var(--naat-gris-suave);font-size:0.875rem;line-height:1.7;margin-bottom:1.5rem;">Gracias por comunicarte con <strong style="color:var(--naat-gris);">NAAT SYSTEM</strong>. Un especialista técnico evaluará tu solicitud y se pondrá en contacto en breve.</p>
       <button onclick="document.getElementById('toast-modal').classList.add('hidden');document.getElementById('toast-modal').classList.remove('flex');" class="btn-primary" style="border-radius:999px;padding:10px 28px;">Entendido</button>
     </div>
