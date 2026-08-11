@@ -399,6 +399,44 @@
       transform-origin: center;
     }
 
+    /* ===== CTA BACKGROUND ENTRANCE ANIMATIONS ===== */
+    .cta-bg-left {
+      opacity: 0;
+      transform: translateY(-50%) translateX(-80px) scale(0.92);
+      transition: opacity 1.3s cubic-bezier(0.16, 1, 0.3, 1), transform 1.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .cta-bg-left.active {
+      opacity: 0.9;
+      transform: translateY(-50%) translateX(0) scale(1);
+    }
+
+    .cta-bg-right {
+      opacity: 0;
+      transform: translateY(-50%) translateX(80px) scale(0.92);
+      transition: opacity 1.3s cubic-bezier(0.16, 1, 0.3, 1) 0.18s, transform 1.3s cubic-bezier(0.16, 1, 0.3, 1) 0.18s;
+    }
+    .cta-bg-right.active {
+      opacity: 0.85;
+      transform: translateY(-50%) translateX(0) scale(1);
+    }
+
+    .cta-bg-fade {
+      opacity: 0;
+      transition: opacity 1.5s ease-out;
+    }
+    .cta-bg-fade.active {
+      opacity: 0.3;
+    }
+
+    @keyframes circuit-data-flow {
+      0% { stroke-dashoffset: 48; }
+      100% { stroke-dashoffset: 0; }
+    }
+    .tech-flow-line {
+      stroke-dasharray: 8 6;
+      animation: circuit-data-flow 4s linear infinite;
+    }
+
     .testimonial-card { background:var(--naat-blanco); border:1px solid var(--naat-borde); border-radius:24px; padding:2rem; box-shadow:var(--naat-shadow); transition:box-shadow 0.3s ease, transform 0.3s ease; position:relative; }
     .testimonial-card::before { content:'\201C'; position:absolute; top:1.25rem; right:1.5rem; font-family:var(--naat-font-display); font-size:4rem; line-height:1; color:var(--naat-verde-suave); font-weight:700; }
     .testimonial-card:hover { box-shadow:var(--naat-shadow-md); transform:translateY(-3px); }
@@ -1663,10 +1701,10 @@
     <!-- Background Tech Grid & Vectors (Image 1 High-Tech Style) -->
     <div class="absolute inset-0 pointer-events-none z-0">
       <!-- Tech Grid Pattern Overlay -->
-      <div class="absolute inset-0 opacity-30" style="background-image: radial-gradient(#94A3B8 1px, transparent 1px); background-size: 28px 28px;"></div>
+      <div class="cta-bg-fade absolute inset-0" style="background-image: radial-gradient(#94A3B8 1px, transparent 1px); background-size: 28px 28px;"></div>
 
       <!-- LEFT HIGH-TECH VECTOR ARTWORK (Hexagon Panel + Circuit Traces + Angled Slashed Bar) -->
-      <svg class="absolute top-1/2 -translate-y-1/2 -left-16 lg:left-0 w-[580px] h-[480px] opacity-90 hidden sm:block" viewBox="0 0 580 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg class="cta-bg-left absolute top-1/2 -left-16 lg:left-0 w-[580px] h-[480px] hidden sm:block" viewBox="0 0 580 480" fill="none" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <linearGradient id="tech-bar-cyan-emerald" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%" stop-color="#6D907C"/>
@@ -1697,7 +1735,7 @@
 
         <!-- Interconnected Circuit Traces -->
         <path d="M 240 144 L 320 144 L 360 184 L 500 184" stroke="#0284C7" stroke-width="2" fill="none" />
-        <path d="M 230 233 L 290 233 L 330 273 L 460 273" stroke="#64748B" stroke-width="1.5" fill="none" stroke-dasharray="8 4" />
+        <path d="M 230 233 L 290 233 L 330 273 L 460 273" stroke="#64748B" stroke-width="1.5" fill="none" class="tech-flow-line" />
         <path d="M 240 40 L 310 40 L 350 80 L 440 80" stroke="#94A3B8" stroke-width="1.5" fill="none" />
 
         <!-- Thick Angled Accent Bar (Cyan/Emerald) with Slashes -->
@@ -1725,7 +1763,7 @@
       </svg>
 
       <!-- RIGHT HIGH-TECH VECTOR ARTWORK (Symmetrical Balance) -->
-      <svg class="absolute top-1/2 -translate-y-1/2 -right-16 lg:right-0 w-[540px] h-[480px] opacity-85 hidden sm:block" viewBox="0 0 540 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg class="cta-bg-right absolute top-1/2 -right-16 lg:right-0 w-[540px] h-[480px] hidden sm:block" viewBox="0 0 540 480" fill="none" xmlns="http://www.w3.org/2000/svg">
         <!-- Outer Right Hexagon Panel -->
         <polygon points="420,280 320,280 270,366 320,452 420,452 470,366" stroke="#94A3B8" stroke-width="2" fill="url(#hex-glass-fill)" filter="url(#panel-soft-shadow)"/>
         <polygon points="410,292 328,292 286,366 328,440 410,440 452,366" stroke="#CBD5E1" stroke-width="1.5" fill="none" stroke-dasharray="4 4"/>
@@ -1909,7 +1947,7 @@
           if (navLogoImg) navLogoImg.src = 'assets/img/logo-white.png';
         }
       }, { passive: true });
-      const revealElements = document.querySelectorAll('.reveal, .reveal-scale, .reveal-left, .reveal-right');
+      const revealElements = document.querySelectorAll('.reveal, .reveal-scale, .reveal-left, .reveal-right, .cta-bg-left, .cta-bg-right, .cta-bg-fade');
       const revealObserver = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('active'); }); }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
       revealElements.forEach(el => revealObserver.observe(el));
 
