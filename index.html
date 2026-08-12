@@ -773,15 +773,15 @@
         <a href="#certificaciones" class="nav-link">Certificaciones</a>
       </nav>
       <a href="#contacto" class="hidden sm:inline-flex btn-primary" style="padding:10px 22px;font-size:0.8rem;">Agendar Consulta</a>
-      <button id="mobile-menu-btn" aria-label="Abrir menú" style="color:var(--naat-gris);font-size:1.25rem;" class="md:hidden focus:outline-none"><i class="fa-solid fa-bars"></i></button>
+      <button id="mobile-menu-btn" aria-label="Abrir menú" style="color:#FFFFFF;font-size:1.35rem;" class="md:hidden focus:outline-none p-2"><i class="fa-solid fa-bars"></i></button>
     </div>
-    <div id="mobile-menu" class="hidden md:hidden pt-4 pb-3 px-4 mt-3 flex-col gap-3" style="border-top:1px solid var(--naat-borde);">
-      <a href="#servicios" class="mobile-link py-1.5 nav-link">Servicios</a>
-      <a href="#nosotros" class="mobile-link py-1.5 nav-link">Nosotros</a>
-      <a href="#stack" class="mobile-link py-1.5 nav-link">Stack Tecnológico</a>
-      <a href="#porque-naat" class="mobile-link py-1.5 nav-link">¿Por qué NAAT?</a>
-      <a href="#certificaciones" class="mobile-link py-1.5 nav-link">Certificaciones</a>
-      <a href="#contacto" class="mobile-link mt-2 btn-primary text-center" style="border-radius:12px;">Agendar Consulta</a>
+    <div id="mobile-menu" class="hidden md:hidden flex-col gap-2 p-4 mt-3 rounded-2xl shadow-2xl transition-all duration-300" style="background: rgba(10, 15, 22, 0.97); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border: 1px solid rgba(255, 255, 255, 0.15); box-shadow: 0 20px 50px rgba(0,0,0,0.85);">
+      <a href="#servicios" class="mobile-link py-2.5 px-4 rounded-xl font-semibold flex items-center justify-between transition-colors hover:bg-white/10" style="color: #FFFFFF !important; font-size: 0.95rem;"><span>Servicios</span> <i class="fa-solid fa-chevron-right text-xs opacity-40"></i></a>
+      <a href="#nosotros" class="mobile-link py-2.5 px-4 rounded-xl font-semibold flex items-center justify-between transition-colors hover:bg-white/10" style="color: #FFFFFF !important; font-size: 0.95rem;"><span>Nosotros</span> <i class="fa-solid fa-chevron-right text-xs opacity-40"></i></a>
+      <a href="#stack" class="mobile-link py-2.5 px-4 rounded-xl font-semibold flex items-center justify-between transition-colors hover:bg-white/10" style="color: #FFFFFF !important; font-size: 0.95rem;"><span>Stack Tecnológico</span> <i class="fa-solid fa-chevron-right text-xs opacity-40"></i></a>
+      <a href="#porque-naat" class="mobile-link py-2.5 px-4 rounded-xl font-semibold flex items-center justify-between transition-colors hover:bg-white/10" style="color: #FFFFFF !important; font-size: 0.95rem;"><span>¿Por qué NAAT?</span> <i class="fa-solid fa-chevron-right text-xs opacity-40"></i></a>
+      <a href="#certificaciones" class="mobile-link py-2.5 px-4 rounded-xl font-semibold flex items-center justify-between transition-colors hover:bg-white/10" style="color: #FFFFFF !important; font-size: 0.95rem;"><span>Certificaciones</span> <i class="fa-solid fa-chevron-right text-xs opacity-40"></i></a>
+      <a href="#contacto" class="mobile-link mt-2 btn-primary text-center py-3 w-full" style="border-radius:12px; font-weight:700; background: var(--naat-verde); color: #FFFFFF; font-size: 0.9rem;">Agendar Consulta</a>
     </div>
   </header>
 
@@ -925,7 +925,7 @@
           </div>
 
           <!-- Ventana de Editor de Código Principal (Derecha) -->
-          <div class="animate-float-delayed" style="position:absolute; top: 15%; right: -15%; width: 90%; max-width: 460px; background: #18181B; border-radius: 16px; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5), 0 0 30px rgba(234,179,8,0.08); overflow: hidden; z-index: 2; display:flex; flex-direction:column; font-family: var(--naat-font-mono);">
+          <div class="animate-float-delayed" style="position:absolute; top: 15%; right: 0; width: 92%; max-width: 440px; background: #18181B; border-radius: 16px; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5), 0 0 30px rgba(234,179,8,0.08); overflow: hidden; z-index: 2; display:flex; flex-direction:column; font-family: var(--naat-font-mono);">
             <!-- Header del Editor -->
             <div style="padding: 12px 16px; background: rgba(0,0,0,0.2); border-bottom: 1px solid rgba(255,255,255,0.05); display:flex; gap: 6px;">
               <div style="width:10px; height:10px; border-radius:50%; background:#FF5F56;"></div>
@@ -1012,7 +1012,7 @@
 
     <div style="max-width:1280px;margin:0 auto;" class="relative z-10">
       <div class="reveal text-center" style="max-width:100%;margin:0 auto 2.5rem;">
-        <h2 style="font-size:clamp(1.8rem,3.8vw,2.8rem); white-space:nowrap; color:#FFFFFF; font-weight:800;">Soluciones Integrales de Tecnología</h2>
+        <h2 style="font-size:clamp(1.75rem,3.8vw,2.8rem); color:#FFFFFF; font-weight:800; line-height:1.2;">Soluciones Integrales de Tecnología</h2>
         <div class="section-divider" style="margin:1rem auto 1.25rem; background:rgba(255,255,255,0.7);"></div>
       </div>
 
@@ -2038,8 +2038,23 @@
       const mobileMenu = document.getElementById('mobile-menu');
       const mobileLinks = document.querySelectorAll('.mobile-link');
       if (menuBtn && mobileMenu) {
-        menuBtn.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); mobileMenu.classList.toggle('flex'); });
-        mobileLinks.forEach(link => link.addEventListener('click', () => { mobileMenu.classList.add('hidden'); mobileMenu.classList.remove('flex'); }));
+        menuBtn.addEventListener('click', () => { 
+          const isHidden = mobileMenu.classList.contains('hidden');
+          if (isHidden) {
+            mobileMenu.classList.remove('hidden');
+            mobileMenu.classList.add('flex');
+            menuBtn.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+          } else {
+            mobileMenu.classList.add('hidden');
+            mobileMenu.classList.remove('flex');
+            menuBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
+          }
+        });
+        mobileLinks.forEach(link => link.addEventListener('click', () => { 
+          mobileMenu.classList.add('hidden'); 
+          mobileMenu.classList.remove('flex'); 
+          menuBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
+        }));
       }
 
       // Logo scroll: reduce tamaño al hacer scroll y cambia bg
