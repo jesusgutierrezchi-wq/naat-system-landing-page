@@ -790,10 +790,10 @@
 <body class="relative overflow-x-hidden">
 
   <!-- NAV -->
-  <header id="main-nav" class="fixed top-0 left-0 w-full z-50 nav-transparent transition-all duration-300 py-4 px-6 md:px-12">
+  <header id="main-nav" class="fixed top-0 left-0 w-full z-50 glass-nav transition-all duration-300 py-4 px-6 md:px-12">
     <div style="max-width:1280px;" class="mx-auto flex items-center justify-between">
       <a href="#" aria-label="NAAT SYSTEM inicio">
-        <img id="nav-logo-img" src="assets/img/logo-white.png" alt="NAAT SYSTEM" class="nav-logo" />
+        <img id="nav-logo-img" src="assets/img/logo-color.png" alt="NAAT SYSTEM" class="nav-logo" />
       </a>
       <nav class="hidden md:flex items-center gap-8">
         <a href="#servicios" class="nav-link">Servicios</a>
@@ -816,30 +816,26 @@
   </header>
 
   <!-- HERO -->
-  <section class="relative w-full pt-36 pb-16 md:pt-44 md:pb-28 overflow-hidden">
-    <!-- Fondo Generado por IA (Subtle Obsidian & 3D Tech Theme) -->
-    <div style="position:absolute; inset:0; z-index:-2; background-image: url('assets/hero_bg.png'); background-size: cover; background-position: center;"></div>
-    <!-- Overlay sutil para legibilidad impecable -->
-    <div style="position:absolute; inset:0; z-index:-1; background: linear-gradient(to right, rgba(10,15,20,0.85) 0%, rgba(10,15,20,0.45) 60%, rgba(10,15,20,0.2) 100%);"></div>
+  <section class="relative w-full pt-36 pb-16 md:pt-44 md:pb-28 overflow-hidden" style="background: #FFFFFF;">
 
     <div class="relative px-6 md:px-12" style="max-width:1280px; margin:0 auto;">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
         <div class="lg:col-span-7 space-y-6 text-center lg:text-left relative z-10">
           <div class="reveal" style="display:inline-flex;">
-            <div class="hero-badge" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.18); color: #F1F5F9; gap:8px;">
+            <div class="hero-badge" style="gap:8px;">
               <img src="assets/img/logo-icon.png" alt="NAAT Icon" style="width:18px; height:18px; object-fit:contain;" />
               <span>NAAT SYSTEM · SOFTWARE &amp; CIBERSEGURIDAD</span>
             </div>
           </div>
-          <h1 class="reveal text-center" style="font-size:clamp(2rem,3.6vw,3.2rem);font-weight:700;line-height:1.15;letter-spacing:-0.02em; color: white; max-width:40rem; margin:0 auto; text-align:center;">
-            Transformación Digital con <br class="hidden sm:inline" /><span style="background: linear-gradient(135deg, #A8D5BA 0%, #6D907C 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Software Robusto</span> y Protección Absoluta.
+          <h1 class="reveal text-center" style="font-size:clamp(2rem,3.6vw,3.2rem);font-weight:700;line-height:1.15;letter-spacing:-0.02em; color: var(--naat-gris); max-width:40rem; margin:0 auto; text-align:center;">
+            Transformación Digital con <br class="hidden sm:inline" /><span style="background: linear-gradient(135deg, #4D907C 0%, #6D907C 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Software Robusto</span> y Protección Absoluta.
           </h1>
-          <p class="reveal" style="color:#CBD5E1; font-size:1.05rem;line-height:1.7;max-width:36rem;margin:0 auto; lg:margin-left:0;">
-            En <strong style="color:white; font-weight:600;">NAAT SYSTEM</strong> diseñamos e implementamos ecosistemas de software a medida, garantizando arquitecturas escalables, seguridad de vanguardia y consultoría tecnológica estratégica.
+          <p class="reveal" style="color:var(--naat-gris-suave); font-size:1.05rem;line-height:1.7;max-width:36rem;margin:0 auto; lg:margin-left:0;">
+            En <strong style="color:var(--naat-gris); font-weight:600;">NAAT SYSTEM</strong> diseñamos e implementamos ecosistemas de software a medida, garantizando arquitecturas escalables, seguridad de vanguardia y consultoría tecnológica estratégica.
           </p>
           <div class="reveal flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-3 relative z-20">
             <a href="#contacto" class="btn-primary w-full sm:w-auto" style="padding:14px 32px; font-size:0.95rem; font-weight:700; background: var(--naat-verde); color: #FFFFFF; border: none; box-shadow: 0 4px 14px rgba(0,0,0,0.18); transition: all 0.25s ease;">Iniciar Proyecto <i class="fa-solid fa-arrow-right" style="font-size:0.8rem; margin-left:4px;"></i></a>
-            <a href="#servicios" class="btn-cta-outline-white w-full sm:w-auto" style="padding:14px 32px; font-size:0.95rem; font-weight:600; background: rgba(255,255,255,0.08); border: 1.5px solid rgba(255,255,255,0.35); color: #FFFFFF; backdrop-filter: blur(8px); transition: all 0.25s ease;">Explorar Servicios</a>
+            <a href="#servicios" class="btn-outline w-full sm:w-auto" style="padding:14px 32px; font-size:0.95rem; font-weight:600;">Explorar Servicios</a>
           </div>
         </div>
       <div class="reveal-scale lg:col-span-5 relative w-full mt-10 lg:mt-0 h-[450px] sm:h-[500px] flex items-center justify-center">
@@ -2101,11 +2097,11 @@
           mainNav.style.paddingBottom = '10px';
           if (navLogoImg) navLogoImg.src = 'assets/img/logo-color.png';
         } else {
-          mainNav.classList.remove('scrolled', 'glass-nav');
-          mainNav.classList.add('nav-transparent');
+          mainNav.classList.remove('scrolled', 'nav-transparent');
+          mainNav.classList.add('glass-nav');
           mainNav.style.paddingTop = '';
           mainNav.style.paddingBottom = '';
-          if (navLogoImg) navLogoImg.src = 'assets/img/logo-white.png';
+          if (navLogoImg) navLogoImg.src = 'assets/img/logo-color.png';
         }
       }, { passive: true });
       const revealElements = document.querySelectorAll('.reveal, .reveal-scale, .reveal-left, .reveal-right, .cta-bg-left, .cta-bg-right, .cta-bg-fade, .services-corner-tl, .services-corner-tr, .services-corner-bl, .services-corner-br');
